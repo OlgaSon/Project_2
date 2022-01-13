@@ -1,0 +1,9 @@
+main.main
+    h1.header To-Do List
+    button#addTaskBtn Add new task
+    form.modal.display-none
+        textarea#inputTask(name="inputTask", cols="30", rows="10"  placeholder="describe task") 
+        button#addBtn(type="submit") Save
+        button#saveBtn.display-none(type="submit") Save
+        button#cancelBtn Cancel
+    ul#taskList

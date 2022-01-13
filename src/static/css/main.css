@@ -1,0 +1,493 @@
+@charset "UTF-8";
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+blockquote,
+body,
+dd,
+dl,
+figcaption,
+figure,
+h1,
+h2,
+h3,
+h4,
+li,
+ol,
+p,
+ul {
+  margin: 0;
+}
+
+body {
+  font-family: 'Circular Std';
+  font-weight: 450;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+  height: 100%;
+  font-size: 19px;
+  line-height: 30px;
+  letter-spacing: 0.2px;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  font-family: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/Gilroy-Bold/Gilroy-Bold.eot");
+  src: local("☺"), url("../fonts/Gilroy-Bold/Gilroy-Bold.woff") format("woff"), url("../fonts/Gilroy-Bold/Gilroy-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/Gilroy-Regular/Gilroy-Regular.eot");
+  src: local("☺"), url("../fonts/Gilroy-Regular/Gilroy-Regular.woff") format("woff"), url("../fonts/Gilroy-Regular/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/Gilroy-Medium/Gilroy-Medium.eot");
+  src: local("☺"), url("../fonts/Gilroy-Medium/Gilroy-Medium.woff") format("woff"), url("../fonts/Gilroy-Medium/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: local("☺"), url("../fonts/HelveticaNeueCyr-Light/HelveticaNeueCyr-Light.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Light/HelveticaNeueCyr-Light.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Light/HelveticaNeueCyr-Light.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: local("☺"), url("../fonts/HelveticaNeueCyr-Medium/HelveticaNeueCyr-Medium.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Medium/HelveticaNeueCyr-Medium.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Medium/HelveticaNeueCyr-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: local("☺"), url("../fonts/HelveticaNeueCyr-Bold/HelveticaNeueCyr-Bold.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Bold/HelveticaNeueCyr-Bold.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Bold/HelveticaNeueCyr-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/Whitney-Light/Whitney-Light.woff") format("woff"), url("../fonts/Whitney-Light/Whitney-Light.eot") format("eot"), url("../fonts/Whitney-Light/Whitney-Light.ttf") format("ttf");
+}
+
+.button {
+  border: 1px solid #00B6F0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 85px;
+  padding: 16px 36px;
+  height: 52px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  background: none;
+  margin: 7px;
+}
+
+.button_blue {
+  background: #00B6F0;
+  color: white;
+}
+
+.button_white {
+  background: white;
+  color: #00B6F0;
+}
+
+.button_black {
+  background: white;
+  color: black;
+  border: none;
+  margin-left: 25px;
+}
+
+.title {
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: 0.1px;
+  text-align: center;
+  color: #20262A;
+  padding: 10px;
+}
+
+.link {
+  padding: 10px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #00B6F0;
+  text-align: center;
+}
+
+.header {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(7.62%, rgba(255, 255, 255, 0.22)), color-stop(55.5%, rgba(0, 225, 198, 0.26)), color-stop(70.92%, #FFFFFF));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 7.62%, rgba(0, 225, 198, 0.26) 55.5%, #FFFFFF 70.92%);
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 5%;
+}
+
+.nav__mob-menu, .nav__nav-in-button {
+  display: none;
+}
+
+.nav__logo {
+  width: 206px;
+  height: 78px;
+  -ms-flex-negative: 6;
+      flex-shrink: 6;
+}
+
+.nav__list {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+
+.nav__link {
+  margin: 3px 10px;
+  text-decoration: none;
+  color: #20262A;
+  display: inline;
+}
+
+.nav__button {
+  color: #00B6F0;
+  width: 140px;
+  -ms-flex-negative: 3;
+      flex-shrink: 3;
+}
+
+.nav__mob-menu {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+@media (max-width: 785px) {
+  .nav .nav__link {
+    display: none;
+  }
+  .nav .nav__icon {
+    margin-top: 15px;
+  }
+  .nav .nav__mob-menu {
+    position: relative;
+    display: block;
+  }
+  .nav .nav__mob-menu:hover .nav__nav-in-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-top: 30px;
+  }
+  .nav .nav__mob-menu:hover .nav__link {
+    display: block;
+  }
+}
+
+/* при сжатии картинка сохраняет размеры, кнопка сжимается второй, меню исчезает первым. Надо - сжать картинку, кнопку, но меню всегда оставить*/
+@media (min-width: 0) {
+  .header__text {
+    padding: 100px 11% 84px;
+  }
+}
+
+@media (min-width: 850px) {
+  .header__text {
+    padding: 100px 20% 84px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header__text {
+    padding: 100px 30% 84px;
+  }
+}
+
+/* удалить
+    @&&&mixin ht-pad($pl-pr)
+        padding: 100px $pl-pr 84px
+    .header__text
+        @&&&include ht-pad(11%)
+        @&&&media (min-width: 850px)
+            @include ht-pad(20%)
+        @&&&media (min-width: 1200px)
+            @include ht-pad(30%)
+    верно ли миксины выше? как их вынести в отдельный файл, если надо?
+    .header__text
+    padding: 130px 11% 84px
+    @&&&media (min-width: 850px)
+        padding: 130px 20% 84px
+    @&&&media (min-width: 1200px)
+        padding: 130px 30% 84px */
+.second-headline {
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 65px;
+  text-align: center;
+  color: #112D57;
+}
+
+.sub-heading {
+  font-size: 24px;
+  line-height: 38px;
+  text-align: center;
+  padding: 10px;
+  margin: 17px;
+  color: #5C5C5C;
+  position: relative;
+  z-index: 3;
+}
+
+.sub-heading__add {
+  display: none;
+}
+
+@media (min-width: 507px) {
+  .sub-heading__add {
+    display: inline;
+  }
+}
+
+.header__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+.header__buttons .button {
+  width: 192px;
+}
+
+.header__images {
+  position: relative;
+}
+
+.header__images .header__blue {
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -94%;
+  left: -40%;
+}
+
+@media (min-width: 850px) {
+  .header__images .header__blue {
+    width: 91%;
+    height: 112%;
+    top: -65%;
+    left: -20%;
+    opacity: 0.9;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header__images .header__blue {
+    width: 32%;
+    height: 74%;
+    top: -36%;
+    left: 0%;
+    opacity: 0.8;
+  }
+}
+
+.header__images .header__yellow {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -19%;
+  right: -58%;
+  z-index: 1;
+}
+
+@media (min-width: 850px) {
+  .header__images .header__yellow {
+    width: 86%;
+    height: 87%;
+    top: -16%;
+    right: -36%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header__images .header__yellow {
+    width: 52%;
+    height: 54%;
+    top: -14%;
+    right: -15%;
+  }
+}
+
+.header__images .header__screen {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+
+.cta1 {
+  padding: 150px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.96fr 1fr;
+      grid-template-columns: 1fr 1.96fr 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.cta1__content {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  min-width: 343px;
+}
+
+.cta1 .title {
+  color: #F3CD03;
+  padding: 10px;
+}
+
+.cta1 .second-headline {
+  color: #20262A;
+  padding: 10px;
+}
+
+.cta1__buttons {
+  padding-top: 20px;
+}
+
+@media (max-width: 836px) {
+  .cta1 .button {
+    width: 317px;
+  }
+}
+
+/*.content
+    display: grid
+    grid-template-columns: 1fr 6.8fr 1fr
+    justify-content: center
+    align-items: center
+    text-align: center
+
+    &__header
+        min-width: 385px
+        color: $first-text */
+.grid {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "feat i_pc" "i_kod font";
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.i_pc {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: i_pc;
+}
+
+.font {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: font;
+}
+
+.i_kod {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: i_kod;
+}
+
+.feat {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: feat;
+}
+
+@media (max-width: 506px) {
+  .grid {
+        grid-template-areas: "i_pc" "font" "i_kod" "feat";
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+/*# sourceMappingURL=main.css.map */

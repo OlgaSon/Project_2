@@ -1,0 +1,171 @@
+@import "import/reset"
+@import "import/fonts"
+
+$primary: #48c6f0f1
+$secondary: #112D57
+$light-text: #FFFFFF
+$dark: #182333
+
+body
+    background: linear-gradient(to bottom, $secondary 5%, $primary 50%, $light-text)
+    min-height: 100vh
+    border: 1px solid pink
+
+img
+    min-width: 20px
+    min-height: 20px
+    object-fit: cover
+
+button
+    height: 26px
+    width: 6vw
+    padding: 4px
+    margin: 0 auto
+    border-radius: 85px
+    font-size: 14px  
+    letter-spacing: 0.2px
+    background-color: $light-text
+    color: $secondary
+    @media (max-width: 850px)
+        font-size: 12px
+        width: 10vw
+
+.main 
+    opacity: 0.9
+    background: $light-text
+    width: 62vw
+    height: 90vh
+    margin: 5vh 19vw
+    padding: 1%
+    display: flex
+    flex-direction: column
+    font-style: italic
+    box-shadow: 0 0 1em black
+    font-size: 22px
+    font-style: italic
+    @media (max-width: 850px)
+        font-size: 16px
+    .header
+        background-color: $light-text
+        color: $secondary
+        margin: 5%
+        font-weight: bold
+        font-size: 36px
+        text-align: center
+        @media (max-width: 850px)
+            font-size: 28px
+    #addTaskBtn
+        height: 40px
+        width: 22vw
+        padding: 6px
+        margin: 0 auto
+        font-size: 20px
+        background-color: $primary
+        color: $light-text
+        text-shadow: 1px 1px 5px $secondary
+        @media (max-width: 850px)
+            font-size: 16px
+    .modal
+        position: fixed
+        width: 34vh
+        height: 34vh
+        left: calc(50% - 17vh)
+        top: calc(50% - 17vh + 5vh)
+        background-color: $primary
+        box-shadow: 6px -6px 1px  $secondary
+        opacity: 0.95
+        display: grid
+        grid-column-start:  2 
+        grid-template-rows: 2fr 1fr
+        grid-template-columns: 1fr 10fr 10fr 1fr
+        grid-template-areas: ". a a ." ". b d ."
+        grid-column-gap: 5%
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        #inputTask
+            grid-area: a
+            height: 100%
+            width: 100%
+            border-radius: 5px
+            border: none
+            margin-top: 15%
+            padding-top: 5%
+            font-style: italic
+            opacity: 0.9
+            background-color: $primary
+            text-align: start
+            font-size: 20px        
+        #addBtn
+            grid-area: b
+        #saveBtn
+            grid-area: b
+        #cancelBtn
+            grid-area: d
+    #taskList
+        width: 90%
+        margin: 10% auto
+        padding-right: 3%
+        display: flex
+        flex-direction: column
+        justify-content: start
+        background-color: white
+        opacity: 1
+        overflow-y: auto
+        overflow-x: hidden
+        .taskItem
+            display: grid
+            grid-template-columns: 1fr 25%
+            flex-direction: row
+            justify-content: center
+            align-items: center
+            text-align: center
+            border-bottom: 1px dotted grey
+            flex-shrink: 2
+            @media (max-width: 850px)
+                    grid-template-columns: 1fr 15%
+            .taskItemText
+                display: grid
+                grid-template-columns: 8% 1fr
+                flex-direction: row
+                justify-content: center
+                align-items: center
+                margin-left: 5%
+                text-align: start
+                &::before
+                    content: "\27A4"
+                    color: $dark
+            .taskItemBtn
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr
+                flex-direction: row
+                justify-content: space-around
+                align-items: center
+                text-align: center
+                color: $dark
+                flex-shrink: 0
+                .checkBtn, .editBtn, .deleteBtn
+                    height: 20px
+                    width: 20px
+                    background: none
+                    min-width: 20px
+                    padding: 0
+                    opacity: 0.3
+                    @media (max-width: 850px)
+                        min-width: 10px
+                        min-height: 10px
+                    img
+                        margin: 3px 4px
+                        border: 10%
+.done
+    text-decoration: line-through
+    opacity: 0.38
+
+.modal.display-none 
+    display: none
+
+#addBtn.display-none
+    display: none
+
+#saveBtn.display-none
+    display: none
