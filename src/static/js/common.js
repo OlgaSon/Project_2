@@ -38,8 +38,8 @@ const updateLocal = () => {
 const displayModal = () => {
     modal.classList.toggle('display-none');
     inputTask.value = '';
+    inputTask.focus();
 };
-
 class Task {
     constructor(text) {
         this.text = text;
@@ -55,17 +55,17 @@ class CheckTask extends Task {
 };
 
 const createTaskItem = (inputText, checkDef) => {
-    let taskItem = document.createElement('li');
+    const taskItem = document.createElement('li');
     taskItem.classList = 'taskItem';
 
-    let taskItemText = document.createElement('div');
+    const taskItemText = document.createElement('div');
     taskItemText.classList = 'taskItemText';
     taskItemText.innerText = inputText;
 
-    let taskItemBtn = document.createElement('div');
+    const taskItemBtn = document.createElement('div');
     taskItemBtn.classList = 'taskItemBtn';
 
-    let checkBtn = document.createElement('input');
+    const checkBtn = document.createElement('input');
     checkBtn.type = 'checkbox';
     checkBtn.classList = 'checkBtn';
     if (checkDef) {
@@ -76,14 +76,14 @@ const createTaskItem = (inputText, checkDef) => {
         checkBtn.value = false;
     };
 
-    let editBtn = document.createElement('button');
+    const editBtn = document.createElement('button');
     editBtn.classList = 'editBtn';
-    let editBtnImg = "<img src='img/pencil.svg'></img>";
+    const editBtnImg = "<img src='img/pencil.svg'></img>";
     editBtn.innerHTML = editBtnImg;
 
-    let deleteBtn = document.createElement('button');
+    const deleteBtn = document.createElement('button');
     deleteBtn.classList = 'deleteBtn';
-    let deleteBtnImg = "<img src='img/trashcan.svg'></img>";
+    const deleteBtnImg = "<img src='img/trashcan.svg'></img>";
     deleteBtn.innerHTML = deleteBtnImg;
 
     taskItem.appendChild(taskItemText);
@@ -99,8 +99,8 @@ const createTaskItem = (inputText, checkDef) => {
         checkBtn.addEventListener('click', (e) => {
 
             taskItem.classList.toggle('done');
-            let checkItem = e.target.parentNode.parentNode.childNodes[0].innerText;
-            let checkItemIndex = tasks.findIndex(item => item.text == checkItem);
+            const checkItem = e.target.parentNode.parentNode.childNodes[0].innerText;
+            const checkItemIndex = tasks.findIndex(item => item.text == checkItem);
             let checkItemIndexMark = tasks[checkItemIndex].check;
             checkItemIndexMark ? checkItemIndexMark = false : checkItemIndexMark = true;
             tasks.splice(checkItemIndex, 1, new CheckTask(checkItem, checkItemIndexMark));
@@ -108,38 +108,39 @@ const createTaskItem = (inputText, checkDef) => {
         });
 
         editBtn.addEventListener('click', (e) => {
-
-            let checkItem = e.target.parentNode.parentNode.parentNode.childNodes[0].innerText;
-            let checkItemIndex = tasks.findIndex(item => item.text == checkItem);
+            const editItem = e.target.parentNode.parentNode.parentNode.childNodes[0].innerText;
+            const editItemIndex = tasks.findIndex(item => item.text == editItem);
+            sessionStorage.setItem('editItemIndex', editItemIndex);
             displayModal();
             inputTask.value = taskItemText.textContent;
             addBtn.classList.toggle('display-none');
             saveBtn.classList.toggle('display-none');
 
             saveBtn.addEventListener('click', (e) => {
-
-                let saveItemIndex = checkItemIndex;
+                let editItemIndex = sessionStorage.getItem('editItemIndex');
+                // let editItemIndex = editItemIndex;
                 e.preventDefault();
 
-                let checkItemIndexMark = tasks[checkItemIndex].check;
+                const checkItemIndexMark = tasks[editItemIndex].check;
 
-                let inputTextNew = e.target.parentNode.elements["inputTask"].value;
+                const inputTextNew = e.target.parentNode.elements["inputTask"].value;
                 if (inputTextNew === '') return;
                 taskItemText.innerText = inputTextNew;
 
-                tasks[saveItemIndex] = new CheckTask(inputTextNew, checkItemIndexMark);
+                tasks[editItemIndex] = new CheckTask(inputTextNew, checkItemIndexMark);
                 addBtn.classList.remove('display-none');
                 saveBtn.classList.add('display-none');
                 displayModal();
                 updateLocal();
-                checkItem = e.target.parentNode.parentNode.childNodes[0].innerText;
+                fillList();
+                // checkItem = e.target.parentNode.parentNode.childNodes[0].innerText;
             });
         });
 
         deleteBtn.addEventListener('click', (e) => {
-            let deleteItemD = e.target.parentNode.parentNode.parentNode.childNodes[0]
-            let deleteItem = deleteItemD.innerText;
-            let deleteItemIndex = tasks.findIndex(item => item.text == deleteItem);
+            const deleteItemD = e.target.parentNode.parentNode.parentNode.childNodes[0]
+            const deleteItem = deleteItemD.innerText;
+            const deleteItemIndex = tasks.findIndex(item => item.text == deleteItem);
 
             setInterval(() => {
                 if (deleteItem) {
@@ -158,11 +159,11 @@ const createTaskItem = (inputText, checkDef) => {
     modifyTaskElem();
 };
 
-fillList();
+window.addEventListener('load', fillList());
 
 const addTask = (e) => {
     e.preventDefault();
-    let inputText = inputTask.value;
+    const inputText = inputTask.value;
     if (inputText === '') return
     createTaskItem(inputText);
     tasks.push(new Task(inputText));
