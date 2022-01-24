@@ -9,12 +9,15 @@ $dark: #182333
 body
     background: linear-gradient(to bottom, $secondary 5%, $primary 50%, $light-text)
     min-height: 100vh
-    border: 1px solid pink
+    
 
 img
     min-width: 20px
     min-height: 20px
     object-fit: cover
+    @media (max-width: 850px)
+        min-width: 10px
+        min-height: 10px
 
 button
     height: 26px
@@ -67,10 +70,10 @@ button
             font-size: 16px
     .modal
         position: fixed
-        width: 34vh
-        height: 34vh
-        left: calc(50% - 17vh)
-        top: calc(50% - 17vh + 5vh)
+        width: 34vmin
+        height: 34vmin
+        left: calc(50% - 17vmin)
+        top: calc(50% - 17vmin + 5vmin)
         background-color: $primary
         box-shadow: 6px -6px 1px  $secondary
         opacity: 0.95
@@ -78,13 +81,19 @@ button
         grid-column-start:  2 
         grid-template-rows: 2fr 1fr
         grid-template-columns: 1fr 10fr 10fr 1fr
-        grid-template-areas: ". a a ." ". b d ."
+        grid-template-areas: ". inputTask inputTask ." ". addBtnSaveBtn cancelBtn ."
         grid-column-gap: 5%
         flex-direction: column
         justify-content: center
         align-items: center
+        @media (max-width: 850px)
+            width: 55vmin
+            height: 55vmin
+            left: calc(50% - 30vmin)
+            top: calc(50% - 30vmin + 5vmin)
+
         #inputTask
-            grid-area: a
+            grid-area: inputTask
             height: 100%
             width: 100%
             border-radius: 5px
@@ -95,13 +104,14 @@ button
             opacity: 0.9
             background-color: $primary
             text-align: start
-            font-size: 20px        
+            font-size: 20px 
+            resize: none       
         #addBtn
-            grid-area: b
+            grid-area: addBtnSaveBtn
         #saveBtn
-            grid-area: b
+            grid-area: addBtnSaveBtn
         #cancelBtn
-            grid-area: d
+            grid-area: cancelBtn
     #taskList
         width: 90%
         margin: 10% auto
@@ -122,8 +132,8 @@ button
             text-align: center
             border-bottom: 1px dotted grey
             flex-shrink: 2
-            @media (max-width: 850px)
-                    grid-template-columns: 1fr 15%
+            // @media (max-width: 850px)
+                    // grid-template-columns: 1fr 15%
             .taskItemText
                 display: grid
                 grid-template-columns: 8% 1fr
@@ -135,6 +145,8 @@ button
                 &::before
                     content: "\27A4"
                     color: $dark
+                @media (max-width: 850px)
+                    line-height: 25px
             .taskItemBtn
                 display: grid
                 grid-template-columns: 1fr 1fr 1fr
@@ -148,18 +160,19 @@ button
                     height: 20px
                     width: 20px
                     background: none
-                    min-width: 20px
+                    // min-width: 20px
                     padding: 0
                     opacity: 0.3
                     @media (max-width: 850px)
-                        min-width: 10px
-                        min-height: 10px
-                    img
-                        margin: 3px 4px
-                        border: 10%
+                        width: 10px
+                        height: 10px
+                    // img
+                        // margin: 3px 4px
+                        // border: 10%
 .done
     text-decoration: line-through
-    opacity: 0.38
+    color: grey
+    // opacity: 0.38 
 
 .modal.display-none 
     display: none
